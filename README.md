@@ -44,14 +44,18 @@ npm run dev       # Vite dev server at http://localhost:3000
 npm run build     # outputs to dist/
 ```
 
-Mount the `dist/` folder as a CNCjs static path by adding a `mountPoints` entry to `~/.cncrc`:
+```bash
+scp -r ./dist danny@192.168.3.128:/home/danny/pi/cncjs-pendant-tablet     # copies the build to the server
+```
+
+Mount the `cncjs-pendant-tablet/` folder as a CNCjs static path by adding a `mountPoints` entry to `~/.cncrc`:
 
 ```json
 {
   "mountPoints": [
     {
-      "route": "/tablet",
-      "path": "/absolute/path/to/cncjs-pendant-tablet/dist"
+      "route": "/lab",
+      "path": "/home/danny/pi/cncjs-pendant-tablet/dist"
     }
   ]
 }
@@ -59,8 +63,8 @@ Mount the `dist/` folder as a CNCjs static path by adding a `mountPoints` entry 
 
 Restart CNCjs, then open:
 
-```
-http://localhost:8000/tablet/
+```bash
+http://jpl.local/lab/
 ```
 
 ---
